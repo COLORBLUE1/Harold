@@ -9,16 +9,17 @@ const con = mysql.createConnection({
 
 con.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Conexión exitosa!");
 });
 
 const LennarF = () => {
   con.query(
-    "INSERT INTO formulario (name, email, password) VALUES (?, ?, ?)",
+    "INSERT INTO formulario (name, edad, email, registro) VALUES (?, ?, ?, ?)",
 
+    [name, edad, email, registro],
     function (err, result) {
       if (err) throw err;
-      console.log("Data inserted");
+      console.log("Datos insertados");
     }
   );
 };
