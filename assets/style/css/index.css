@@ -17,12 +17,16 @@ nav ul {
 
   li {
     text-transform: uppercase;
+    transition: all 1s;
     a {
       color: rgb(255, 255, 255);
       transition: all 1s;
       &:hover {
-        color: aqua;
+        color: rgb(0, 110, 255);
       }
+    }
+    &:hover {
+      scale: 1.2;
     }
   }
 }
@@ -35,9 +39,13 @@ nav ul {
   grid-template-columns: 70% 30%;
   height: 100vh;
 
+  .right::-webkit-scrollbar {
+    width: 0;
+  }
+
   .right {
     background: #ff7b3d;
-
+    overflow-y: auto;
     form {
       overflow: hidden;
       background: rgba(255, 255, 255, 0.39);
@@ -47,6 +55,12 @@ nav ul {
       padding: 10px;
       padding: 30px;
       border-radius: 15px;
+
+      h2 {
+        text-align: center;
+        margin: auto;
+        margin-bottom: 50px;
+      }
 
       input {
         border-radius: 10px;
@@ -59,11 +73,16 @@ nav ul {
 
       label {
         margin-left: 10px;
-        color: #292929;
+        color: #313131;
         font-weight: 800;
         font-family: monospace;
       }
 
+      .checkbox {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
       figure {
         margin: auto;
       }
@@ -76,6 +95,7 @@ nav ul {
       .envio-img {
         display: flex;
         align-items: center;
+
         .boton {
           background: green;
           padding: 10px;
