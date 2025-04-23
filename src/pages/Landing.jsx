@@ -101,11 +101,11 @@ const Figure = styled.figure`
     }
 `;
 
-
 const Landing = () => {
     useEffect(() => {
         AOS.init();
     }, [])
+
     return (
         <>
             <Header>
@@ -118,7 +118,7 @@ const Landing = () => {
                 </TituloContenedor>
             </Header>
             <Figure>
-                <div>gg</div>
+                <div></div>
             </Figure>
             <Information>
                 <div data-aos="fade-up"
