@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import styled from 'styled-components'
 import AOS from 'aos';
+import { Bentogaleri } from '../components/Bentogaleri';
+import { Footer } from '../components/Footer';
 
 const Header = styled.header`
         height: 100vh;
@@ -128,6 +130,8 @@ const Landing = () => {
                     <article ><img data-aos="fade-left" data-aos-duration="1000" src="https://estaticos.elcolombiano.com/binrepository/768x432/0c0/0d0/none/11101/XQEA/goku-esta-de-acuerdo-con-esta-critica-de-los-fans-a-la-serie_42329133_20230509102801.jpg" alt="" /></article>
                 </div>
             </Record>
+            <Bentogaleri titulo="record" />
+         <Footer />
         </>
     )
 }
