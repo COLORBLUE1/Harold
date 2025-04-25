@@ -1,26 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SobrenosotrosLayout from "../layouts/SobrenosotrosLayout";
 import styled from "styled-components";
+import { Header } from "../components/Header";
 
-const Header = styled.header`
-  height: 500px;
-  background: url(https://mott.pe/noticias/wp-content/uploads/2017/08/Paisajes-reflejan-paz-y-serenidad-Im%C3%A1genes-de-Mario-Visser-compressor.png)
-    no-repeat center center/cover;
-  overflow: hidden;
-  background-attachment: fixed;
-
-  h2 {
-    font-family: bebas;
-    letter-spacing: 5px;
-    color: white;
-    text-align: center;
-    padding-top: 200px;
-    font-size: 50px;
-    margin: 0;
-    backdrop-filter: blur(5px);
-    height: 100%;
-  }
-`;
 const Section = styled.section`
   h2 {
     font-family: bebas;
@@ -81,16 +63,51 @@ const Section = styled.section`
       text-align: right;
     }
   }
+
+  @media (max-width: 768px) {
+    div:nth-child(2) {
+      text-align: center;
+      position: relative;
+      left: 0;
+      width: 100%;
+      margin-bottom: 300px;
+      p {
+        text-align: center;
+        width: 300px;
+        margin: auto;
+      }
+    }
+
+    div:last-child {
+      text-align: center;
+      position: relative;
+      left: 0;
+      width: 100%;
+      margin-bottom: 300px;
+      p {
+        text-align: center;
+        width: 300px;
+        margin: auto;
+      }
+    }
+  }
 `;
 
 const Sobrenosotros = () => {
+  useEffect(() => {
+    // Desplazar la ventana a la parte superior de la página
+    window.scrollTo(0, 0);
+    AOS.init();
+  }, []);
+
   return (
     <SobrenosotrosLayout>
-      <Header>
-        <h2>Sobre nosotros</h2>
-      </Header>
+      <Header
+        titulo="Sobre nosotros"
+        bg=" https://mott.pe/noticias/wp-content/uploads/2017/08/Paisajes-reflejan-paz-y-serenidad-Im%C3%A1genes-de-Mario-Visser-compressor.png"
+      />
       <Section>
-        <div>
+        <div data-aos="fade-up" data-aos-duration="1000">
           <h2>¿Quiénes somos?</h2>
           <p>
             Somos un grupo de estudiantes de la Universidad Nacional de San
@@ -99,7 +116,7 @@ const Sobrenosotros = () => {
             medida para empresas y particulares.
           </p>
         </div>
-        <div>
+        <div data-aos="fade-up">
           <h2>Misión</h2>
           <p>
             Proceso culturo ambiental de iniciativa ciudadana, Solidaridad
@@ -111,8 +128,8 @@ const Sobrenosotros = () => {
             Oficiales, el Sector Empresarial y demás Actores Sociales.
           </p>
         </div>
-        <div></div>
-        <div>
+        <div data-aos="zoom-in"></div>
+        <div data-aos="fade-up">
           <h2>Visión</h2>
           <p>
             Será un conglomerado de actores y líderes sociales, comunidades

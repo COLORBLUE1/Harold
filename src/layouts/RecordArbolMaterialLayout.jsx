@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import { Footer } from "../components/Footer";
-const Section = styled.section`
+
+const Section = styled.header`
   height: auto;
 `;
-
-const SobrenosotrosLayout = ({ children }) => {
+const RecordArbolMaterialLayout = ({ children }) => {
   return (
     <Section>
       <Navbar
@@ -20,4 +20,4 @@ const SobrenosotrosLayout = ({ children }) => {
   );
 };
 
-export default SobrenosotrosLayout;
+export default RecordArbolMaterialLayout;
