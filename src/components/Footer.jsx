@@ -6,6 +6,10 @@ const FooterS = styled.section`
     height: 30vh;
     background: #292929;
     
+  
+        font-family: montserrat;
+        color: #a5a5a5;
+
 `;
 
 const contenedor = {
@@ -29,12 +33,12 @@ export const Footer = () => {
                 </div>
 
                 {/* Redes Sociales */}
-                <div className="flex justify-center space-x-6">
+                <div className="flex justify-center space-x-20">
                     <a href="#" aria-label="Facebook" className="text-white hover:text-blue-500">
-                        <FaFacebook size={30} />
+                        <FaFacebook color={"white"} size={30} />
                     </a>
                     <a href="#" aria-label="YouTube" className="text-white hover:text-red-500">
-                        <FaYoutube size={30} />
+                        <FaYoutube color={"red"} size={30} />
                     </a>
                 </div>
 
@@ -42,9 +46,8 @@ export const Footer = () => {
                 <div className="text-center md:text-right">
                     <h2 className="text-sm font-semibold mb-2">ORGANIZACIÓN SIN ÁNIMO DE LUCRO</h2>
                     <div className="flex flex-col items-center md:items-end">
-                        <img src="/ruta-de-tu-imagen/logo.png" alt="Logo" className="w-14 h-14 mb-2" />
                         <p className="text-xs max-w-xs">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON RESPONSABILIDAD SOCIAL
                         </p>
                     </div>
                 </div>

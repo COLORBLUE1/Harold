@@ -109,7 +109,7 @@ const Landing = () => {
     return (
         <>
             <Header>
-                <Navbar tex3="Contactos" url3="/" color="#202A9A" />
+                <Navbar tex3="Récord Guinnes 2025" url3="/Record-Guinness-magdalena" color="#202A9A" />
                 <TituloContenedor className="container">
                     <div >
                         <h1 className="animate__animated animate__fadeInDown animate__delay-1s">FUNDACION CAMINO A TSIYON</h1>
@@ -127,7 +127,7 @@ const Landing = () => {
             <Record>
                 <div className="ContenedorRecord">
                     <div data-aos="fade-up"><h2>RECORD GUINEES</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
-                    <article ><img data-aos="fade-left" data-aos-duration="1000" src="https://estaticos.elcolombiano.com/binrepository/768x432/0c0/0d0/none/11101/XQEA/goku-esta-de-acuerdo-con-esta-critica-de-los-fans-a-la-serie_42329133_20230509102801.jpg" alt="" /></article>
+                    <article ><img data-aos="fade-left" data-aos-duration="1000" src="src/assets/Archives/img/Record-arbol/Arbol.png" alt="" /></article>
                 </div>
             </Record>
             <Bentogaleri titulo="record" />
