@@ -110,8 +110,10 @@ const TituloContenedor = styled.div`
     margin-bottom: 0;
   }
   p {
-    color: #8c8c8c;
-    font-size: clamp(0.625rem, 0.357rem + 0.714vw, 1rem);
+    width: clamp(21.25rem, -12.679rem + 90.476vw, 68.75rem);
+    margin:30px auto;
+    color: #6d6d6d;
+    font-size: clamp(0.725rem, 0.357rem + 0.714vw, 1rem);
     font-family: monospace;
     letter-spacing: clamp(0.188rem, 0.098rem + 0.238vw, 0.313rem);
   }
