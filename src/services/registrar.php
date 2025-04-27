@@ -38,11 +38,11 @@ $edad = $data->edad;
 $ciudad = $data->ciudad;
 $canal19 = $data->canal19;
 
-// Conexión a la base de datos
-$host = "162.241.61.245"; // Reemplaza si usas otro host externo o localhost en producción
-$user = "funda730_ADMIN";
-$password = "Camilo12.";
-$dbname = "funda730_registro_huellas";
+$host = "localhost"; // O usa la IP si es un servidor remoto, como 162.241.61.245.
+$user = "cpses_fuvcnhofvh"; // Tu usuario de la base de datos.
+$password = "Camilo12."; // La contraseña asociada a tu usuario de base de datos.
+$dbname = "funda730_registro_huellas"; // El nombre de tu base de datos.
+
 
 $conn = new mysqli($host, $user, $password, $dbname);
 
