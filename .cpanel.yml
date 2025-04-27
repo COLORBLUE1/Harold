@@ -1,0 +1,7 @@
+# .cpanel.yml
+deployment:
+  branch: main        # Especifica la rama que deseas desplegar (puede ser 'master' o cualquier rama principal).
+  root: /home2/funda730/public_html  # Ruta al directorio donde se debe desplegar el proyecto en el servidor.
+  build:
+    - npm install      # Ejemplo: Si estás utilizando Node.js, puedes incluir este comando.
+    - npm run build     # Comando para compilar tu proyecto.
