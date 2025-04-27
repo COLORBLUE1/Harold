@@ -195,7 +195,7 @@ const Landing = () => {
           <article>
             <img
               data-aos="fade-up"
-              src="https://shared26.hostgator.co:2083/cpsess6921933099/viewer/home2%2ffunda730%2fpublic_html%2fassets/Arbol-DKREX8b8.png"
+              src="https://shared26.hostgator.co:2083/cpsess6921933099/frontend/jupiter/filemanager/showfile.html?file=Arbol-DKREX8b8.png&fileop=&dir=%2Fhome2%2Ffunda730%2Fpublic_html%2Fassets&dirop=&charset=&file_charset=&baseurl=&basedir="
               alt=""
             />
           </article>
