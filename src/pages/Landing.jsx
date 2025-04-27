@@ -57,6 +57,10 @@ const Information = styled.section`
 
   div {
     width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     p {
       color: #000000ba;
       font-size: 20px;
@@ -68,11 +72,12 @@ const Information = styled.section`
     iframe {
       margin: auto;
       width: 100%;
-      height: 700px;
+      height: 80%;
       border-radius: 30px;
     }
   }
 `;
+
 const TituloContenedor = styled.div`
   display: flex;
   justify-content: center;

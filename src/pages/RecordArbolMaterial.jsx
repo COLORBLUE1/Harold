@@ -19,7 +19,7 @@ const RecordArbolMaterial = () => {
       />
       <Bentogaleri
         bd={RecordArbolBD}
-        bg="#adadad"
+        bg="#ffffff"
         urlmas="/Arbol-material"
         columns={3}
         spacing={2}

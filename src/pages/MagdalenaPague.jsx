@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
+import axios from "axios";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import MagdalenaLayout from "../layouts/MagdalenaLayout";
 import styled from "styled-components";
 import "animate.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { colors } from "@mui/material";
+
+
 const Header = styled.header`
   height: 100vh;
   display: flex;
@@ -122,13 +130,58 @@ const SectionFormulario = styled.section`
     font-family: 'montserrat';
     border: none;
     margin: 10px auto;
+    cursor: pointer;
+
+    &:hover{
+      scale: 1.1;
+      color: #006d21;
+      font-weight: 800;
+    }
     }
   }
 `;
 
+
+const error = {
+  color: "#ffffff",
+  background: " #ff0000",
+  width: "150px",
+  margin: "10px",
+  marginLeft: "15px",
+  padding: "5px",
+  borderRadius: "20px",
+}
 export const MagdalenaPague = () => {
+  const formik = useFormik({
+    initialValues: {
+      nombre: "",
+      edad: "",
+      ciudad: "",
+      canal19: "no",
+    },
+    validationSchema: Yup.object({
+      nombre: Yup.string().required("Nombre es requerido"),
+      edad: Yup.number()
+        .typeError("Edad debe ser un número")
+        .positive("Edad debe ser positiva")
+        .integer("Edad debe ser un número entero")
+        .required("Edad es requerida"),
+      ciudad: Yup.string().required("Ciudad es requerida"),
+      canal19: Yup.string().oneOf(["si", "no"]).required("Campo requerido"),
+    }),
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        await axios.post("http://localhost:3001/registrar", values);
+        alert("¡Registro exitoso!");
+        resetForm();
+        window.scrollTo(0, 0);
+      } catch (err) {
+        alert("Error al registrar huella.");
+      }
+    },
+  });
+
   useEffect(() => {
-    // Desplazar la ventana a la parte superior de la página
     window.scrollTo(0, 0);
     AOS.init();
   }, []);
@@ -137,12 +190,12 @@ export const MagdalenaPague = () => {
     <MagdalenaLayout>
       <Header>
         <img
-          className="animate__animated animate__fadeInDown "
+          className="animate__animated animate__fadeInDown"
           src="https://situr.boyaca.gov.co/wp-content/uploads/2017/05/DSC_-379-1024x683.jpg"
-          alt="Description of image"
+          alt="Río Magdalena"
         />
         <h3>
-          REGISTRATE Y DEJA TU HUELLA{" "}
+          REGÍSTRATE Y DEJA TU HUELLA{" "}
           <span>
             <a href="#formulario">Registrarse</a>
           </span>
@@ -156,37 +209,62 @@ export const MagdalenaPague = () => {
             RESPONSABILIDAD SOCIAL
           </span>{" "}
           y estampa tu HUELLA de compromisos POS COP 16, en la propuesta de
-          Récord Guinness 2025, después de 26 años, de establecer un Word Récord
-          Guinness con la obra El Árbol de la PAZ pintado con 42.515 huellas sin
-          repetir, una por cada participante, se quiere establecer un mayor
-          ranking con una pintura del Río Magdalena.
+          Récord Guinness 2025...
         </p>
       </Section>
       <SectionFormulario id="formulario">
-        <form action="" data-aos="fade-up">
+        <form onSubmit={formik.handleSubmit} data-aos="fade-up">
           <div>
-            {" "}
             <p>
-              PONTE TU CAMISETASEMBRADORES DE AMBIENTE ,PAZ Y VIDACON
-              RESPONSABILIDAD  SOCIALRECORD GUINNESS 2025"EL MAGDALENA," UN
-              RIO DE BENDICIONES
+              PONTE TU CAMISETA SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON RESPONSABILIDAD SOCIAL
+              RECORD GUINNESS 2025 "EL MAGDALENA," UN RIO DE BENDICIONES
             </p>
           </div>
-          <label htmlFor="">Nombre</label>
-          <input type="text" name="" id="" />
-          <label htmlFor="">Edad</label>
-          <input type="text" name="" id="" />
-          <label htmlFor="">Lugar residencia / ciudad</label>
-          <input type="text" name="" id="" />
+
+          <label htmlFor="nombre">Nombre</label>
+          <input
+            type="text"
+            name="nombre"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.nombre}
+          />
+          {formik.touched.nombre && formik.errors.nombre && <div style={error}>{formik.errors.nombre}</div>}
+
+          <label htmlFor="edad">Edad</label>
+          <input
+            type="text"
+            name="edad"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.edad}
+          />
+          {formik.touched.edad && formik.errors.edad && <div>{formik.errors.edad}</div>}
+
+          <label htmlFor="ciudad">Lugar residencia / ciudad</label>
+          <input
+            type="text"
+            name="ciudad"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.ciudad}
+          />
+          {formik.touched.ciudad && formik.errors.ciudad && <div style={error}>{formik.errors.ciudad}</div>}
+
           <div>
-            <label htmlFor="">¿Registro Canal 19?</label>
-            <select name="" id="">
-              <option value="si">Si</option>
-              <option value="no" selected>
-                No
-              </option>
+            <label htmlFor="canal19">¿Registro Canal 19?</label>
+            <select
+              name="canal19"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.canal19}
+            >
+              <option value="si">Sí</option>
+              <option value="no">No</option>
             </select>
+            {formik.touched.canal19 && formik.errors.canal19 && <div style={error}>{formik.errors.canal19}</div>}
           </div>
+
           <button type="submit">Registrar huella</button>
         </form>
       </SectionFormulario>
