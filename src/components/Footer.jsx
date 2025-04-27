@@ -21,7 +21,15 @@ const Contenedor = styled.div`
   justify-items: center;
   grid-template-columns: repeat(3, 1fr); // 3 columnas en pantallas grandes
   align-items: center;
-
+padding: 25px;
+span a{
+  color: white;
+  font-weight: 800;
+  margin-left: 10px;
+   &:hover{
+    color: #097fe7;
+   }
+}
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     text-align: center;
@@ -53,6 +61,7 @@ export const Footer = () => {
           >
             <FaYoutube color={"red"} size={30} />
           </a>
+
         </div>
 
         {/* Organización */}
@@ -63,6 +72,18 @@ export const Footer = () => {
           <p className="text-xs max-w-xs">
             SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON RESPONSABILIDAD SOCIAL
           </p>
+          <span>
+            Pagina desarrollada y diseñada por - 
+            <a
+              href="https://portafolio-v2-three.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="text-white hover:text-red-500"
+            >
+               @Abel
+            </a>
+          </span>
         </div>
       </Contenedor>
     </FooterS>

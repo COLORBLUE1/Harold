@@ -12,7 +12,7 @@ const Section = styled.section`
             background: #ffffff;
         }
         100% {
-            background: #072A16;
+            background: #081d4d;
         }
     }
 `;
@@ -20,7 +20,7 @@ const Section = styled.section`
 const MagdalenaLayout = ({ children }) => {
     return (
         <Section>
-            <Navbar tex3="Récord Guinnes 1999" url3="/" color="#326728" />
+            <Navbar tex3="Récord Guinnes 1999" url3="/" color="#4850a8" />
             {children}
             <Footer />
         </Section>

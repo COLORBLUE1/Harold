@@ -75,14 +75,21 @@ const Container = styled.nav`
       left: 0;
       right: 0;
       background: #202a9a;
+      height: 100vh;
       padding: 20px;
       border-radius: 0 0 20px 20px;
       z-index: 999;
       backdrop-filter: blur(3px);
 
       &.active {
-        display: flex; // Mostrar el menú cuando está activo
+        display: flex;
         width: 90vw;
+        justify-content: flex-start;
+        align-items: center;
+        animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 0.5s; /* don't forget to set a duration! */
+       overflow-y: hidden;
+       padding-top:100px;
       }
     }
     .contenedorhambur {

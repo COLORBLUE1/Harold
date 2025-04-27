@@ -7,8 +7,6 @@ import styled from "styled-components";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { colors } from "@mui/material";
-
 
 const Header = styled.header`
   height: 100vh;
@@ -28,17 +26,19 @@ const Header = styled.header`
     margin-top: 50px;
     font-family: roboto;
     color: #fff;
+    font-size: clamp(0.90rem, 0.286rem + 1.905vw, 2rem);
   }
   span a {
     text-decoration: underline;
-    color: #acc864;
+    color: #9c97f0;
   }
   span a:hover {
-    color: #dbff7e;
+    color: #7e80ff;
     position: relative;
     top: -5px;
   }
 `;
+
 const Section = styled.section`
   height: 100vh;
   display: flex;
@@ -46,8 +46,13 @@ const Section = styled.section`
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  background: #ffffff;
+img{
+  width: 50%;
+  border-radius: 15px;
+}
   div {
-    background-color: #326728;
+    background-color: #4850a8;
     position: relative;
     scale: 1.1;
     width: 100%;
@@ -59,23 +64,37 @@ const Section = styled.section`
       scale: 1.8;
     }
   }
+
+.dos{
+  background-color: #4850a8;
+    position: relative;
+    scale: 1.1;
+    width: 100%;
+    height: 55%;
+    transform: rotate(15deg);
+
+    @media (max-width: 768px) {
+      height: 35%;
+      scale: 1.8;
+    }
+  
+}
+
   p {
     text-transform: uppercase;
     font-family: roboto;
     font-size: clamp(1.25rem, 0.804rem + 1.19vw, 1.875rem);
-    color: #dddddd;
+    color: #ffffff;
     width: 50%;
     position: absolute;
-    span {
-      font-family: bebas;
-      color: #ffffff;
-    }
+    letter-spacing: 5px;
 
     @media (max-width: 768px) {
       width: 85%;
     }
   }
 `;
+
 const SectionFormulario = styled.section`
   height: 100vh;
   display: flex;
@@ -83,26 +102,28 @@ const SectionFormulario = styled.section`
   justify-content: center;
   text-align: center;
   overflow: hidden;
+
   form {
     border-radius: 30px;
-    background-color: #326728;
+    background-color: #ffffff4e;
     display: grid;
-    padding: 20px; /* Added padding for better spacing */
+    padding: 20px;
     width: clamp(18.75rem, 14.286rem + 11.905vw, 25rem);
     color: white;
     font-family: "Roboto", sans-serif;
+
     label {
       font-size: 20px;
       margin: 15px 20px;
       text-align: left;
     }
+
     input {
       border-radius: 15px;
       border: none;
       width: 90%;
       height: 20px;
       padding: 10px;
-      
     }
 
     div {
@@ -113,44 +134,45 @@ const SectionFormulario = styled.section`
         border: none;
         padding: 2px;
         border-radius: 10px;
-        width: 50px;
+        width: 60px;
         font-family: montserrat;
         font-weight: 800;
       }
     }
-    button{
-      border-radius: 15px;
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    background: #69cd57;
-    color: white;
-    font-family: 'montserrat';
-    border: none;
-    margin: 10px auto;
-    cursor: pointer;
 
-    &:hover{
-      scale: 1.1;
-      color: #006d21;
-      font-weight: 800;
-    }
+    button {
+      border-radius: 15px;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      background: #69cd57;
+      color: white;
+      font-family: "montserrat";
+      border: none;
+      margin: 10px auto;
+      cursor: pointer;
+
+      &:hover {
+        scale: 1.1;
+        color: #006d21;
+        font-weight: 800;
+      }
     }
   }
 `;
 
-
 const error = {
   color: "#ffffff",
-  background: " #ff0000",
+  background: "#ff0000",
   width: "150px",
   margin: "10px",
   marginLeft: "15px",
   padding: "5px",
   borderRadius: "20px",
-}
+};
+
 export const MagdalenaPague = () => {
   const formik = useFormik({
     initialValues: {
@@ -171,12 +193,21 @@ export const MagdalenaPague = () => {
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
-        await axios.post("http://localhost:3001/registrar", values);
-        alert("¡Registro exitoso!");
+        await axios.post(
+          "https://fundacioncaminoatsiyon.org/registrar.php",
+          JSON.stringify(values),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        alert("¡Registro exitoso! 😁");
         resetForm();
         window.scrollTo(0, 0);
       } catch (err) {
-        alert("Error al registrar huella.");
+        alert("Error al registrar huella. 😔");
+        console.error("Error:", err);
       }
     },
   });
@@ -201,23 +232,31 @@ export const MagdalenaPague = () => {
           </span>
         </h3>
       </Header>
+
       <Section>
         <div></div>
         <p data-aos="zoom-in">
-          <span>
-            PONTE TU CAMISETA DE SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON
-            RESPONSABILIDAD SOCIAL
-          </span>{" "}
-          y estampa tu HUELLA de compromisos POS COP 16, en la propuesta de
-          Récord Guinness 2025...
+          PONTE TU CAMISETA DE SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON
+          RESPONSABILIDAD SOCIAL
         </p>
+      </Section>
+      <Section>
+        <div className="dos"></div>
+        <p data-aos="zoom-in">
+          y estampa tu HUELLA de compromisos POS COP 16,
+          en la propuesta de Récord Guinness 2025
+        </p>
+      </Section>
+      <Section>
+        <img src="https://unico.com.co/wp-content/uploads/2025/02/Barranquilla-1.jpg" alt="" />
       </Section>
       <SectionFormulario id="formulario">
         <form onSubmit={formik.handleSubmit} data-aos="fade-up">
           <div>
             <p>
-              PONTE TU CAMISETA SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON RESPONSABILIDAD SOCIAL
-              RECORD GUINNESS 2025 "EL MAGDALENA," UN RIO DE BENDICIONES
+              PONTE TU CAMISETA SEMBRADORES DE AMBIENTE, PAZ Y VIDA CON
+              RESPONSABILIDAD SOCIAL RECORD GUINNESS 2025 "EL MAGDALENA," UN
+              RÍO DE BENDICIONES
             </p>
           </div>
 
@@ -229,7 +268,9 @@ export const MagdalenaPague = () => {
             onBlur={formik.handleBlur}
             value={formik.values.nombre}
           />
-          {formik.touched.nombre && formik.errors.nombre && <div style={error}>{formik.errors.nombre}</div>}
+          {formik.touched.nombre && formik.errors.nombre && (
+            <div style={error}>{formik.errors.nombre}</div>
+          )}
 
           <label htmlFor="edad">Edad</label>
           <input
@@ -239,7 +280,9 @@ export const MagdalenaPague = () => {
             onBlur={formik.handleBlur}
             value={formik.values.edad}
           />
-          {formik.touched.edad && formik.errors.edad && <div>{formik.errors.edad}</div>}
+          {formik.touched.edad && formik.errors.edad && (
+            <div style={error}>{formik.errors.edad}</div>
+          )}
 
           <label htmlFor="ciudad">Lugar residencia / ciudad</label>
           <input
@@ -249,7 +292,9 @@ export const MagdalenaPague = () => {
             onBlur={formik.handleBlur}
             value={formik.values.ciudad}
           />
-          {formik.touched.ciudad && formik.errors.ciudad && <div style={error}>{formik.errors.ciudad}</div>}
+          {formik.touched.ciudad && formik.errors.ciudad && (
+            <div style={error}>{formik.errors.ciudad}</div>
+          )}
 
           <div>
             <label htmlFor="canal19">¿Registro Canal 19?</label>
@@ -262,7 +307,9 @@ export const MagdalenaPague = () => {
               <option value="si">Sí</option>
               <option value="no">No</option>
             </select>
-            {formik.touched.canal19 && formik.errors.canal19 && <div style={error}>{formik.errors.canal19}</div>}
+            {formik.touched.canal19 && formik.errors.canal19 && (
+              <div style={error}>{formik.errors.canal19}</div>
+            )}
           </div>
 
           <button type="submit">Registrar huella</button>

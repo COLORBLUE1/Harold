@@ -13,7 +13,7 @@ const LandingLayout = ({ children }) => {
       <Navbar
         tex3="Récord Guinnes 2025"
         url3="/Record-Guinness-magdalena"
-        color="#202A9A"
+        color="#127e41"
       />
       {children}
       <Footer />

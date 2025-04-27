@@ -1,12 +1,12 @@
 @font-face {
-    font-family: montserrat;
-    src: url(../font/Montserrat/static/Montserrat-Light.ttf);
-  }
+  font-family: montserrat;
+  src: url(../font/Montserrat/static/Montserrat-Light.ttf);
+}
 @font-face {
-    font-family: bebas;
-    src: url(../font/Bebas_Neue/BebasNeue-Regular.ttf);
-  }
+  font-family: bebas;
+  src: url(../font/Bebas_Neue/BebasNeue-Regular.ttf);
+}
 @font-face {
-    font-family: roboto;
-    src: url(../font/Roboto/Roboto-VariableFont_wdth\,wght.ttf);
-  }
+  font-family: roboto;
+  src: url(../font/Roboto/Roboto-VariableFont_wdth-wght.ttf);
+}

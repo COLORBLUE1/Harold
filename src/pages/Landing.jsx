@@ -10,7 +10,7 @@ const Header = styled.header`
 `;
 const Record = styled.header`
   height: auto;
-  background: #4850a8;
+  background: #1a491b;
 
   .ContenedorRecord {
     display: flex;
@@ -20,6 +20,7 @@ const Record = styled.header`
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
+    width: 100%;
     div {
       width: clamp(18.75rem, 12.054rem + 17.857vw, 28.125rem);
       h2 {
@@ -32,6 +33,10 @@ const Record = styled.header`
         color: #fff;
         font-family: montserrat;
       }
+      @media (max-width: 768px) {
+    text-align: center;
+    margin: auto;
+  }
     }
     article {
       padding: 20px;
@@ -50,11 +55,10 @@ const Record = styled.header`
 `;
 
 const Information = styled.section`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  height: 100vh;
   div {
     width: 80%;
     height: 100%;
@@ -74,8 +78,20 @@ const Information = styled.section`
       width: 100%;
       height: 80%;
       border-radius: 30px;
+
+      @media (max-width: 768px) {
+      height: 40%;
+  }
     }
   }
+  @media (max-width: 768px) {
+    height: 150vh;
+
+    iframe {
+      height: 50%;
+    }
+  }
+  
 `;
 
 const TituloContenedor = styled.div`
@@ -85,6 +101,7 @@ const TituloContenedor = styled.div`
   color: white;
   text-align: center;
   height: 100vh;
+  padding: 10px;
   h1 {
     color: #0015ff;
     font-family: monospace;
@@ -111,6 +128,10 @@ const Figure = styled.figure`
     background: url(https://conexion360.mx/wp-content/uploads/2018/09/FOTO-WEB-DIBUJANDO-UN-MA%C3%91ANA-1.jpg)
       no-repeat center center/cover;
     background-attachment: fixed;
+
+    @media (max-width: 768px) {
+      background-attachment: scroll;
+  }
   }
 `;
 
@@ -127,7 +148,7 @@ const Landing = () => {
       <Header>
         <TituloContenedor className="container">
           <div>
-            <h1 className="animate__animated animate__fadeInDown ">
+            <h1 className="animate__animated animate__fadeInDown">
               FUNDACION CAMINO A TSIYON
             </h1>
             <p className="animate__animated animate__fadeInUp ">
@@ -140,7 +161,7 @@ const Landing = () => {
         <div></div>
       </Figure>
       <Information>
-        <div data-aos="fade-up" data-aos-duration="1000">
+        <div data-aos="fade-up">
           <p>
             En 1999 se alcanzó un World Record Guinness en Colombia, en un tema
             Artístico-Cultural,por el Ambiente , la Paz y la Vida, se convocó a
@@ -173,9 +194,8 @@ const Landing = () => {
           </div>
           <article>
             <img
-              data-aos="fade-left"
-              data-aos-duration="1000"
-              src="src/assets/Archives/img/Record-arbol/Arbol.png"
+              data-aos="fade-up"
+              src="https://shared26.hostgator.co:2083/cpsess6921933099/viewer/home2%2ffunda730%2fpublic_html%2fassets/Arbol-DKREX8b8.png"
               alt=""
             />
           </article>
@@ -183,7 +203,7 @@ const Landing = () => {
       </Record>
       <Bentogaleri
         bd={imageGalery}
-        bg="#4850a8"
+        bg="#256b27"
         urlmas="/Arbol-material"
         columns={3}
         spacing={2}

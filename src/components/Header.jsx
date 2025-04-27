@@ -14,7 +14,7 @@ const HeaderSection = styled.header`
     color: white;
     text-align: center;
     padding-top: 200px;
-    font-size: 50px;
+    font-size: clamp(2.5rem, 2.054rem + 1.19vw, 3.125rem);
     margin: 0;
     backdrop-filter: blur(5px);
     height: 100%;

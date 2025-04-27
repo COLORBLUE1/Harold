@@ -2,17 +2,21 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mysql from "mysql";
+import dotenv from "dotenv";
+
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Configuración de conexión
+
+dotenv.config();
+
 const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "registro_huellas", // Asegúrate de tener esta base de datos creada
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 // Conectar a MySQL
